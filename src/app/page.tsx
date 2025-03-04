@@ -1,7 +1,6 @@
-import Logo from "@/svg/logo"
+import Logo from "@/app/components/svg/logo"
 import Link from "next/link";
 import { menuItems } from "@/constants/menu"
-
 
 export default async function Home() {
   return (
