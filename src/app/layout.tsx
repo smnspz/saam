@@ -3,7 +3,8 @@ import { IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 
 const ibmPlexMono = IBM_Plex_Mono({
-  weight: ["400", "700"]
+  weight: ["400", "700"],
+  subsets: ["latin"]
 })
 
 export const metadata: Metadata = {
