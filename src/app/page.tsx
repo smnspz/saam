@@ -4,10 +4,9 @@ import { menuItems } from "@/constants/menu"
 
 
 export default async function Home() {
-
   return (
-    <main>
-      <div className="relative w-screen h-screen overflow-hidden">
+    <main className="fixed inset-0 overflow-hidden">
+      <div className="w-full h-full overflow-hidden">
         <div className="absolute inset-0 bg-[url(/album_cover.jpg)] bg-cover bg-top blur-sm"></div>
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="flex flex-col items-center justify-center h-full">
