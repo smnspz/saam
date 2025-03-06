@@ -49,7 +49,7 @@ const Header = () => {
 
         {/* Logo - Centered */}
         <div className="absolute left-1/2 -translate-x-1/2 mx-auto">
-          <Link href="/" className="flex items-center gap-2">
+          <Link href="/merch" className="flex items-center gap-2">
             <Logo color="#1D71B8" className="h-20 w-20" />
           </Link>
         </div>
