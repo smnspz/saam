@@ -1,6 +1,6 @@
-import Logo from "@/app/components/svg/logo";
+import Logo from "@/components/svg/logo";
 import Link from "next/link";
-import { menuItems } from "@/constants/menu";
+import { homeMenuItems } from "@/constants/menu";
 
 export default function Home() {
   return (
@@ -24,7 +24,7 @@ export default function Home() {
             FUORI ORA
           </h1>
           <ul className="z-10 flex flex-row space-x-8 mt-auto mb-8">
-            {menuItems.map((item, index) => (
+            {homeMenuItems.map((item, index) => (
               <li
                 key={index}
                 className="text-white text-xl font-bold underline underline-offset-4 cursor-pointer"

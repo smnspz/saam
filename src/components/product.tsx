@@ -1,0 +1,67 @@
+"use client";
+
+import { Product as IProduct } from "@/types/product";
+import {
+  Carousel,
+  CarouselApi,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "./ui/carousel";
+import Image from "next/image";
+import React from "react";
+import Link from "next/link";
+
+const Product = ({ product }: { product: IProduct }) => {
+  return (
+    <div className="group flex flex-col items-center">
+      <Link href={`merch/product/${product.slug}`}>
+        <div className="flex flex-col items-center p-4 bg-blue-300/50 rounded">
+          {product.images.length > 1 ? (
+            <Carousel className="flex w-full">
+              <CarouselContent className="max-w-xs">
+                {product.images.map((image, index) => (
+                  <CarouselItem key={index} className="flex justify-center">
+                    <Image
+                      key={image.name}
+                      src={image.src}
+                      alt={product.name}
+                      width={300}
+                      height={500}
+                      className="object-cover rounded aspect-2/3"
+                    />
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious
+                variant="ghost"
+                className="absolute left-10 top-125"
+              />
+              <CarouselNext
+                variant="ghost"
+                className="absolute top-125 right-10"
+              />
+            </Carousel>
+          ) : (
+            <Image
+              key={product.images[0].name}
+              src={product.images[0].src}
+              alt={product.name}
+              width={300}
+              height={500}
+              className="object-cover rounded aspect-2/3"
+            />
+          )}
+        </div>
+      </Link>
+      <span className="group-hover:opacity-100 transition-opacity lg:opacity-0 mt-1">
+        {product.attributes[0]?.options.join(" ")}
+      </span>
+      <span>{product.name}</span>
+      <span>{product.price}&#8364;</span>
+    </div>
+  );
+};
+
+export default Product;

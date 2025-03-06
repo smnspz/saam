@@ -1,20 +1,21 @@
-import Logo from "@/app/components/svg/logo";
+"use server";
 
-const Navbar = () => {
-  return (
-    <nav className="w-5xl bg-white w-35">
-      <Logo color="#1D71B8" />
-    </nav>
-  );
-};
+import Header from "@/components/header";
+import Marquee from "@/components/marquee";
 
-export default function MerchLayout({
+export default async function MerchLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <body className={`antialiased`}>
-        <Navbar />
+        <div className="h-10">
+          <Marquee
+            text="25% OFF on all merchandise with code SAAMPUSSY"
+            speed={0.8}
+          />
+        </div>
+        <Header />
         {children}
       </body>
     </html>
