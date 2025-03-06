@@ -1,5 +1,3 @@
-"use client";
-
 import { Product as IProduct } from "@/types/product";
 import {
   Carousel,
@@ -9,7 +7,6 @@ import {
   CarouselPrevious,
 } from "./ui/carousel";
 import Image from "next/image";
-import React from "react";
 import Link from "next/link";
 
 const Product = ({ product }: { product: IProduct }) => {
