@@ -33,7 +33,7 @@ export default function Merch() {
   if (error)
     return (
       <div className="w-screen h-screen flex justify-center items-center text-xl">
-        C'è stato un errore... ricarica la pagina pls 👉👈 🥺
+        C'è stato un errore... ricarica la pagina pls...
       </div>
     );
 
