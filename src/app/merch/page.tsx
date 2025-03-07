@@ -30,6 +30,8 @@ export default function Merch() {
     return data;
   }, [data, category]);
 
+  if (error) return <div className="text-xl"></div>;
+
   return (
     <section>
       <Filters />
