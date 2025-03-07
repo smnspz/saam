@@ -14,12 +14,13 @@ export default async function ProductPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const product = await wooCommerceClient.getProducts({ slug: slug });
+  const product: Product = (
+    await wooCommerceClient.getProducts({ slug: slug })
+  )[0];
 
   return (
     <div>
       <h1>{product.name}</h1>
-      <h1>{product.price}</h1>
     </div>
   );
 }
