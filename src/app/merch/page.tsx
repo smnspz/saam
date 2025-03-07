@@ -1,13 +1,13 @@
 "use client";
 
 import Product from "@/components/product";
-import React, { useMemo } from "react";
+import React, { Suspense, useMemo } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Product as ProductType } from "@/types/product";
 import Filters from "@/components/filters";
 import { useSearchParams } from "next/navigation";
 
-export default function Merch() {
+function MerchContent() {
   const params = useSearchParams();
   const category = params.get("category");
   const { data, error, isLoading } = useQuery<ProductType[]>({
@@ -33,18 +33,28 @@ export default function Merch() {
   if (error)
     return (
       <div className="w-screen h-screen flex justify-center items-center text-xl">
-        C'è stato un errore... ricarica la pagina pls...
+        {"C'è stato un errore... ricarica la pagina pls..."}
       </div>
     );
 
   return (
-    <section>
+    <>
       <Filters />
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mt-5 mx-5">
         {filtered?.map((product, index) => (
           <Product product={product} key={index} />
         ))}
       </div>
+    </>
+  );
+}
+
+export default function Merch() {
+  return (
+    <section>
+      <Suspense>
+        <MerchContent />
+      </Suspense>
     </section>
   );
 }
