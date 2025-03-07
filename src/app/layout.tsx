@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
+import { Provider } from "@/lib/provider";
 
 const ibmPlexMono = IBM_Plex_Mono({
   weight: ["400", "700"],
@@ -19,7 +20,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${ibmPlexMono.className} antialiased`}>{children}</body>
+      <body className={`${ibmPlexMono.className} antialiased`}>
+        <Provider>{children}</Provider>
+      </body>
     </html>
   );
 }
