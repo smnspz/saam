@@ -30,7 +30,12 @@ export default function Merch() {
     return data;
   }, [data, category]);
 
-  if (error) return <div className="text-xl"></div>;
+  if (error)
+    return (
+      <div className="w-screen h-screen flex justify-center items-center text-xl">
+        C'è stato un errore... ricarica la pagina pls 👉👈 🥺
+      </div>
+    );
 
   return (
     <section>
