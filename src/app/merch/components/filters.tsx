@@ -3,7 +3,7 @@
 import { Category } from "@/types/product";
 import { useQuery } from "@tanstack/react-query";
 import React, { useState, useEffect } from "react";
-import { Badge } from "./ui/badge";
+import { Badge } from "../../../components/ui/badge";
 import { useRouter, useSearchParams } from "next/navigation";
 
 interface Filter {

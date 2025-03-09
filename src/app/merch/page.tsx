@@ -1,10 +1,10 @@
 "use client";
 
-import Product from "@/components/product";
+import Product from "./components/product";
 import React, { Suspense, useMemo } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Product as ProductType } from "@/types/product";
-import Filters from "@/components/filters";
+import Filters from "./components/filters";
 import { useSearchParams } from "next/navigation";
 
 function MerchContent() {
