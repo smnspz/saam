@@ -38,10 +38,6 @@ export default function ProductDescription({ product }: { product: Product }) {
   const hasCategory = (category: string) =>
     product.categories.some((cat) => cat.name === category);
 
-  const helpComponents = {};
-
-  console.log(hasCategory("Musica"));
-
   return (
     <div className="max-w-md mx-auto px-4 py-8 flex flex-col items-center">
       <div className="text-center space-y-6">
