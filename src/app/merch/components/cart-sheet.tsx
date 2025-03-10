@@ -1,12 +1,17 @@
 "use client";
 
 import { useCart } from "@/lib/providers/cart-provider";
-import { Button } from "./ui/button";
-import { Sheet, SheetContent, SheetHeader, SheetTitle } from "./ui/sheet";
+import { Button } from "../../../components/ui/button";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+} from "../../../components/ui/sheet";
 import Image from "next/image";
 import { Minus, Plus, X } from "lucide-react";
 import Link from "next/link";
-import ButtonBrutalist from "./ui/button-brutalist";
+import ButtonBrutalist from "../../../components/ui/button-brutalist";
 
 export default function CartSheet() {
   const {
@@ -20,7 +25,11 @@ export default function CartSheet() {
 
   return (
     <Sheet open={isCartOpen} onOpenChange={setIsCartOpen}>
-      <SheetContent side="right" className="w-[350px] sm:w-[400px]">
+      <SheetContent
+        showCloseButton={false}
+        side="right"
+        className="w-[350px] sm:w-[400px]"
+      >
         <SheetHeader>
           <SheetTitle>Il tuo carrello</SheetTitle>
         </SheetHeader>
