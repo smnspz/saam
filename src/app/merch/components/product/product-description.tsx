@@ -54,11 +54,11 @@ export default function ProductDescription({ product }: { product: Product }) {
                 {`${attribute.name}: `}
                 <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
                   <SheetTrigger asChild>
-                    <button className="text-gray-700 inline-flex items-center cursor-pointer">
+                    <span className="text-gray-700 inline-flex items-center cursor-pointer">
                       {hasOption
                         ? option
                         : `Seleziona ${attribute.name.toLowerCase()}`}
-                    </button>
+                    </span>
                   </SheetTrigger>
                   <SheetContent
                     side="right"

@@ -37,13 +37,13 @@ export default function CartSheet() {
         <div className="mt-8 flex flex-col gap-4">
           {items.length === 0 ? (
             <div className="flex flex-col gap-2 text-center">
-              <p>Il tuo carrello è vuoto</p>
-              <Button
+              <p>Il tuo carrello è vuoto :(</p>
+              <ButtonBrutalist
                 onClick={() => setIsCartOpen(false)}
                 className="mx-auto mt-4 w-fit"
               >
                 Continua lo shopping
-              </Button>
+              </ButtonBrutalist>
             </div>
           ) : (
             <>
