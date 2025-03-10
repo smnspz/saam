@@ -4,7 +4,7 @@ import { Product as ProductType } from "@/types/product";
 import { useSearchParams } from "next/navigation";
 import { useMemo } from "react";
 import Filters from "./filters";
-import ProductCard from "./product-card";
+import ProductCard from "./product/product-card";
 
 export default function MerchContent({
   products,

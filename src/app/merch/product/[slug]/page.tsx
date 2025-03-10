@@ -1,8 +1,8 @@
 import { wooCommerceClient } from "@/lib/woocommerce";
 import { Product } from "@/types/product";
-import ProductDescription from "../../components/product-description";
+import ProductDescription from "../../components/product/product-description";
 import { Metadata } from "next";
-import ProductCarousel from "../../components/product-carousel";
+import ProductCarousel from "../../components/product/product-carousel";
 
 export async function generateStaticParams() {
   const products = await wooCommerceClient.getProducts();
