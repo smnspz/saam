@@ -1,20 +1,46 @@
 "use client";
 
+import ButtonBrutalist from "@/components/ui/button-brutalist";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Separator } from "@/components/ui/separator";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { CartItem, useCart } from "@/lib/providers/cart-provider";
 import { Product } from "@/types/product";
-import { ChevronRight, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 import { useEffect, useState } from "react";
+import { HelpButton } from "./product-help";
 
 export default function ProductDescription({ product }: { product: Product }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [option, setOption] = useState("");
+  const { isCartOpen, addToCart, setIsCartOpen } = useCart();
+
+  const hasOption = !(option.length === 0);
+
+  const handleAddToCart = () => {
+    const item: CartItem = {
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      quantity: 1,
+      image: product.images[0].src,
+    };
+
+    addToCart(item);
+    setIsCartOpen(true);
+  };
 
   useEffect(() => {
     setIsMenuOpen(false);
   }, [option]);
+
+  const hasCategory = (category: string) =>
+    product.categories.some((cat) => cat.name === category);
+
+  const helpComponents = {};
+
+  console.log(hasCategory("Musica"));
 
   return (
     <div className="max-w-md mx-auto px-4 py-8 flex flex-col items-center">
@@ -33,7 +59,7 @@ export default function ProductDescription({ product }: { product: Product }) {
                 <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
                   <SheetTrigger asChild>
                     <button className="text-gray-700 inline-flex items-center cursor-pointer">
-                      {option
+                      {hasOption
                         ? option
                         : `Seleziona ${attribute.name.toLowerCase()}`}
                     </button>
@@ -64,28 +90,30 @@ export default function ProductDescription({ product }: { product: Product }) {
             ))}
           </div>
 
-          <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
+          <Sheet
+            open={hasOption ? isCartOpen : isMenuOpen}
+            onOpenChange={hasOption ? setIsCartOpen : setIsMenuOpen}
+          >
             <SheetTrigger>
-              <button className="mt-4 cursor-pointer py-2.5 px-5 relative inline-flex klsuaonrmcha layhetgsjdcb yhansklopals gap-x-2 rounded-sm text-sm tracking-[.00714em] font-medium border-2 border-black hover:-translate-y-0.5 shadow-[3px_3px_0_0_#000000] bg-blue-200  hover:bg-blue-300 focus:bg-blue-300 text-black">
+              <ButtonBrutalist
+                onClick={() => {
+                  if (option) {
+                    handleAddToCart();
+                  } else {
+                    setIsMenuOpen(true);
+                  }
+                }}
+              >
                 {option ? "Aggiungi al carrello" : "Scegli l'opzione"}
-              </button>
+              </ButtonBrutalist>
             </SheetTrigger>
           </Sheet>
         </div>
 
-        <div className="flex justify-center gap-6 pt-4">
-          <button className="inline-flex items-center text-sm cursor-pointer">
-            Dettagli prodotto
-            <ChevronRight className="h-4 w-4" />
-          </button>
-          <button className="inline-flex items-center text-sm cursor-pointer">
-            Guida alle taglie
-            <ChevronRight className="h-4 w-4" />
-          </button>
-          <button className="inline-flex items-center text-sm cursor-pointer">
-            Spedizione
-            <ChevronRight className="h-4 w-4" />
-          </button>
+        <div className="flex sm:justify-center sm:flex-row flex-col gap-6 pt-4">
+          <HelpButton>Dettagli prodotto</HelpButton>
+          <HelpButton>Guida alle taglie</HelpButton>
+          <HelpButton>Spedizione</HelpButton>
         </div>
       </div>
 
