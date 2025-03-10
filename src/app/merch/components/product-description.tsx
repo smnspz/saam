@@ -66,17 +66,9 @@ export default function ProductDescription({ product }: { product: Product }) {
 
           <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
             <SheetTrigger>
-              <button className="w-full hover:bg-[#1D71B8] bg-[#1D71B8]/30 hover:text-white py-3 px-4 rounded-full transition cursor-pointer">
+              <button className="mt-4 cursor-pointer py-2.5 px-5 relative inline-flex klsuaonrmcha layhetgsjdcb yhansklopals gap-x-2 rounded-sm text-sm tracking-[.00714em] font-medium border-2 border-black hover:-translate-y-0.5 shadow-[3px_3px_0_0_#000000] bg-blue-200  hover:bg-blue-300 focus:bg-blue-300 text-black">
                 {option ? "Aggiungi al carrello" : "Scegli l'opzione"}
               </button>
-              {/* 
-              TODO: posthog effect on the button hover
-              <button className="bg-[#1D71B8] pb-3 hover:pb-4 transition-all rounded cursor-pointer">
-                <span className="border-2 rounded px-4 py-2 bg-white">
-                  {option ? "Aggiungi al carrello" : "Scegli l'opzione"}
-                </span>
-              </button> 
-              */}
             </SheetTrigger>
           </Sheet>
         </div>
