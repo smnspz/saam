@@ -47,7 +47,7 @@ export default function CartSheet() {
             </div>
           ) : (
             <>
-              <div className="space-y-4 max-h-[60vh] overflow-auto pr-4">
+              <div className="space-y-4 max-h-[60vh] overflow-auto pl-4 pr-4">
                 {items.map((item) => (
                   <div key={item.id} className="flex p-2 border-b pb-4">
                     {item.image && (
