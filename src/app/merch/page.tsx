@@ -1,59 +1,14 @@
-"use client";
-
-import Product from "./components/product";
 import React, { Suspense, useMemo } from "react";
-import { useQuery } from "@tanstack/react-query";
-import { Product as ProductType } from "@/types/product";
-import Filters from "./components/filters";
-import { useSearchParams } from "next/navigation";
+import { wooCommerceClient } from "@/lib/woocommerce";
+import MerchContent from "./components/merch-content";
 
-function MerchContent() {
-  const params = useSearchParams();
-  const category = params.get("category");
-  const { data, error, isLoading } = useQuery<ProductType[]>({
-    queryKey: ["products"],
-    queryFn: async () => {
-      const response = await fetch("/api/products");
-      if (!response.ok) {
-        throw new Error("Failed to fetch products");
-      }
-      return response.json();
-    },
-  });
+export default async function Merch() {
+  const products = await wooCommerceClient.getProducts();
 
-  const filtered = useMemo(() => {
-    if (category && data) {
-      return data.filter((product) =>
-        product.categories.some((cat) => cat.slug === category)
-      );
-    }
-    return data;
-  }, [data, category]);
-
-  if (error)
-    return (
-      <div className="w-screen h-screen flex justify-center items-center text-xl">
-        {"C'è stato un errore... ricarica la pagina pls..."}
-      </div>
-    );
-
-  return (
-    <>
-      <Filters />
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mt-5 mx-5">
-        {filtered?.map((product, index) => (
-          <Product product={product} key={index} />
-        ))}
-      </div>
-    </>
-  );
-}
-
-export default function Merch() {
   return (
     <section>
       <Suspense>
-        <MerchContent />
+        <MerchContent products={products} />
       </Suspense>
     </section>
   );

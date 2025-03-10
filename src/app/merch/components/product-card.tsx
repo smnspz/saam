@@ -1,4 +1,4 @@
-import { Product as IProduct } from "@/types/product";
+import { Product as ProductType } from "@/types/product";
 import {
   Carousel,
   CarouselContent,
@@ -9,7 +9,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 
-const Product = ({ product }: { product: IProduct }) => {
+const ProductCard = ({ product }: { product: ProductType }) => {
   return (
     <div className="group flex flex-col items-center">
       <div className="flex flex-col items-center p-4 bg-blue-300/50 rounded">
@@ -62,4 +62,4 @@ const Product = ({ product }: { product: IProduct }) => {
   );
 };
 
-export default Product;
+export default ProductCard;

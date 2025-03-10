@@ -16,7 +16,6 @@ export default function ProductDescription({ product }: { product: Product }) {
     setIsMenuOpen(false);
   }, [option]);
 
-  console.log(product);
   return (
     <div className="max-w-md mx-auto px-4 py-8 flex flex-col items-center">
       <div className="text-center space-y-6">
@@ -70,6 +69,14 @@ export default function ProductDescription({ product }: { product: Product }) {
               <button className="w-full hover:bg-[#1D71B8] bg-[#1D71B8]/30 hover:text-white py-3 px-4 rounded-full transition cursor-pointer">
                 {option ? "Aggiungi al carrello" : "Scegli l'opzione"}
               </button>
+              {/* 
+              TODO: posthog effect on the button hover
+              <button className="bg-[#1D71B8] pb-3 hover:pb-4 transition-all rounded cursor-pointer">
+                <span className="border-2 rounded px-4 py-2 bg-white">
+                  {option ? "Aggiungi al carrello" : "Scegli l'opzione"}
+                </span>
+              </button> 
+              */}
             </SheetTrigger>
           </Sheet>
         </div>

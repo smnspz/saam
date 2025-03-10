@@ -1,19 +1,9 @@
-"use server";
-
 import Header from "@/components/header";
 import Marquee from "@/components/marquee";
-import { getQueryClient } from "@/lib/query";
-import { wooCommerceClient } from "@/lib/woocommerce";
-import { HydrationBoundary } from "@tanstack/react-query";
 
-export default async function MerchLayout({
+export default function MerchLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  const queryClient = getQueryClient();
-  await queryClient.prefetchQuery({
-    queryKey: ["products"],
-    queryFn: () => wooCommerceClient.getProducts(),
-  });
   return (
     <html lang="en">
       <body className={`antialiased`}>
@@ -24,7 +14,7 @@ export default async function MerchLayout({
           />
         </div>
         <Header />
-        <HydrationBoundary>{children}</HydrationBoundary>
+        {children}
       </body>
     </html>
   );

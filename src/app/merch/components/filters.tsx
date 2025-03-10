@@ -1,7 +1,6 @@
 "use client";
 
 import { Category } from "@/types/product";
-import { useQuery } from "@tanstack/react-query";
 import React, { useState, useEffect } from "react";
 import { Badge } from "../../../components/ui/badge";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -11,32 +10,21 @@ interface Filter {
   isSelected: boolean;
 }
 
-export default function Filters() {
+export default function Filters({ categories }: { categories: Category[] }) {
   const [filters, setFilters] = useState<Filter[]>([]);
   const searchParams = useSearchParams();
 
-  const { data, error, isLoading } = useQuery<Category[]>({
-    queryKey: ["category"],
-    queryFn: async () => {
-      const response = await fetch("/api/categories");
-      if (!response.ok) {
-        throw new Error("Failed to fetch products");
-      }
-      return response.json();
-    },
-  });
-
   useEffect(() => {
-    if (data) {
+    if (categories) {
       const currentCategory = searchParams.get("category");
       setFilters(
-        data.map((category) => ({
+        categories.map((category) => ({
           category,
           isSelected: category.slug === currentCategory,
         }))
       );
     }
-  }, [data, searchParams]);
+  }, [categories, searchParams]);
 
   const router = useRouter();
 
