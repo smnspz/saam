@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
-import { Provider } from "@/lib/provider";
+import { ReactQueryProvider } from "@/lib/providers/react-query-provider";
+import { CartProvider } from "@/lib/providers/cart-provider";
 
 const ibmPlexMono = IBM_Plex_Mono({
   weight: ["400", "700"],
@@ -19,9 +20,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="it">
       <body className={`${ibmPlexMono.className} antialiased`}>
-        <Provider>{children}</Provider>
+        <CartProvider>
+          <ReactQueryProvider>{children}</ReactQueryProvider>
+        </CartProvider>
       </body>
     </html>
   );

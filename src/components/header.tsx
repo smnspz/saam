@@ -13,10 +13,12 @@ import { Menu, ShoppingCart } from "lucide-react";
 import Link from "next/link";
 import Logo from "./svg/logo";
 import { merchMenuItemContact, merchMenuItems } from "@/constants/menu";
+import { useCart } from "@/lib/providers/cart-provider";
+import CartSheet from "./cart-sheet";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isCartOpen, setIsCartOpen] = useState(false);
+  const { setIsCartOpen, itemCount } = useCart();
 
   return (
     <header className="sticky top-0 z-50 w-full bg-background">
@@ -63,32 +65,25 @@ const Header = () => {
           </Link>
 
           {/* Cart Trigger */}
-          <Sheet open={isCartOpen} onOpenChange={setIsCartOpen}>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon">
-                <ShoppingCart className="h-8 w-8" color="#1D71B8" />
-                <span className="sr-only">Open cart</span>
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-              <SheetHeader>
-                <SheetTitle>Your Cart</SheetTitle>
-              </SheetHeader>
-              <div className="mt-8 flex flex-col gap-4">
-                <div className="flex flex-col gap-2 text-center">
-                  <p>Your cart is empty</p>
-                  <Button
-                    onClick={() => setIsCartOpen(false)}
-                    className="mx-auto mt-4 w-fit"
-                  >
-                    Continue Shopping
-                  </Button>
-                </div>
-              </div>
-            </SheetContent>
-          </Sheet>
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => setIsCartOpen(true)}
+            className="relative"
+          >
+            <ShoppingCart className="h-8 w-8" color="#1D71B8" />
+            {itemCount > 0 && (
+              <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                {itemCount}
+              </span>
+            )}
+            <span className="sr-only">Open cart</span>
+          </Button>
         </div>
       </div>
+
+      {/* Cart Sheet Component */}
+      <CartSheet />
     </header>
   );
 };
