@@ -10,7 +10,7 @@ const ibmPlexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Saam",
+  title: "SAAM",
   description: "Per ogni caduta una terra amata fuori ora!",
 };
 

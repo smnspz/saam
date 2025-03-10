@@ -1,6 +1,12 @@
 import Header from "@/components/header";
 import Marquee from "@/components/marquee";
-import CartSheet from "@/components/cart-sheet";
+import CartSheet from "@/app/merch/components/cart-sheet";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "SAAM MERCH",
+  description: "Musica e merchandise",
+};
 
 export default function MerchLayout({
   children,
