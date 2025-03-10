@@ -4,8 +4,8 @@ import { useState } from "react";
 import {
   Sheet,
   SheetContent,
+  SheetFooter,
   SheetHeader,
-  SheetTitle,
   SheetTrigger,
 } from "./ui/sheet";
 import { Button } from "./ui/button";
@@ -14,7 +14,8 @@ import Link from "next/link";
 import Logo from "./svg/logo";
 import { merchMenuItemContact, merchMenuItems } from "@/constants/menu";
 import { useCart } from "@/lib/providers/cart-provider";
-import CartSheet from "./cart-sheet";
+import CartSheet from "../app/merch/components/cart-sheet";
+import Instagram from "./svg/instagram";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -30,8 +31,42 @@ const Header = () => {
               <span className="sr-only">Toggle menu</span>
             </Button>
           </SheetTrigger>
-          <SheetContent side="left" className="w-[300px] sm:w-[400px]">
-            {/* TODO: sidebar content here */}
+          <SheetContent side="left" className="w-screen">
+            <SheetHeader className="mx-auto mt-10">
+              <Logo color="#1D71B8" className="w-30" />
+            </SheetHeader>
+            <div className="flex flex-col items-center space-y-7 pt-30">
+              {merchMenuItems.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.url}
+                  className="font-semibold text-3xl transition-colors hover:text-primary md:block text-[#1D71B8]"
+                >
+                  {item.name}
+                </Link>
+              ))}
+              <Link
+                href={merchMenuItemContact.url}
+                className="font-semibold text-3xl transition-colors hover:text-primary md:block text-[#1D71B8]"
+              >
+                {merchMenuItemContact.name}
+              </Link>
+            </div>
+            <SheetFooter>
+              <Link
+                href="https://instagram.com/saam_band"
+                className="flex justify-center mb-4"
+              >
+                <Button
+                  className="flex items-center gap-2"
+                  variant="ghost"
+                  size="lg"
+                >
+                  <Instagram className="w-[30px]" color="black" />
+                  Seguici su instagram!
+                </Button>
+              </Link>
+            </SheetFooter>
           </SheetContent>
         </Sheet>
 
