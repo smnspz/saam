@@ -32,14 +32,14 @@ export const metadata: Metadata = {
       "View all upcoming SAAM concerts, live shows, and tour dates in Italy and beyond.",
     url: "https://saam.band/tour",
     siteName: "SAAM Official Website",
-    images: [
-      {
-        url: "https://saam.band/images/saam-live.jpg", // Replace with actual image path
-        width: 1200,
-        height: 630,
-        alt: "SAAM performing live",
-      },
-    ],
+    // images: [
+    //   {
+    //     url: "https://saam.band/images/saam-live.jpg",
+    //     width: 1200,
+    //     height: 630,
+    //     alt: "SAAM performing live",
+    //   },
+    // ],
     locale: "it_IT",
     type: "website",
   },
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     title: "SAAM Tour Dates | Live Shows and Concerts",
     description:
       "View all upcoming SAAM concerts, live shows, and tour dates in Italy and beyond.",
-    images: ["https://saam.band/images/saam-live.jpg"], // Replace with actual image path
+    // images: ["https://saam.band/images/saam-live.jpg"], // Replace with actual image path
   },
   alternates: {
     canonical: "https://saam.band/tour",
@@ -69,7 +69,6 @@ export default async function Tour() {
     return "+ info";
   };
 
-  // Create JSON-LD structured data for events
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "MusicGroup",

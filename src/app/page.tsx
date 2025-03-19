@@ -51,7 +51,7 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  // Create JSON-LD structured data for the band
+  // JSON-LD structured data for the band
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "MusicGroup",
@@ -60,13 +60,13 @@ export default function Home() {
     image: "https://saam.band/album_cover.jpg",
     genre: ["Emo", "Rock", "Punk", "Indie"],
     sameAs: [
-      "https://instagram.com/saam_band", // Replace with actual social URLs
+      "https://instagram.com/saam_band",
       "https://open.spotify.com/artist/6TbR7LOXKCLxeuxf9MI2wa?si=d-1oiqXMRKOqAGEl4NeJhg",
     ],
     album: {
       "@type": "MusicAlbum",
       name: "Per ogni caduta una terra amata",
-      datePublished: "2024", // Replace with actual release date
+      datePublished: "2024",
     },
   };
 
