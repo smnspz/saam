@@ -57,10 +57,9 @@ export const metadata: Metadata = {
 
 export default async function Tour() {
   const events = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/events`,
+    `/api/events`,
     { next: { revalidate: 3600 } } // Revalidate cache every hour
   );
-  console.log(process.env.NEXT_PUBLIC_API_URL);
   const data: Event[] = await events.json();
 
   const buttonText = (event: Event): string => {
