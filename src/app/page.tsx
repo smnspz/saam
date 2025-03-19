@@ -10,7 +10,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="flex flex-col items-center justify-center h-full">
           <Logo className="z-10 w-35 mt-auto animate-fade-in" color="#ffffff" />
-          <h2 className="z-10 text-white font-bold text-5xl tracking-[0.22em] text-center my-7 animate-fade-in-bottom">
+          <h2 className="z-10 text-white font-bold text-5xl tracking-[0.22em] text-center my-7">
             PER OGNI
             <br />
             CADUTA
