@@ -56,8 +56,12 @@ export const metadata: Metadata = {
 };
 
 export default async function Tour() {
+  const baseUrl = process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+
   const events = await fetch(
-    `${process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"}/api/events`,
+    `${baseUrl}/api/events`,
     { next: { revalidate: 3600 } } // Revalidate cache every hour
   );
   const data: Event[] = await events.json();
