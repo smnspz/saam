@@ -67,7 +67,6 @@ export default async function Tour() {
 
   const data: Event[] = await events.json();
 
-
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "MusicGroup",
@@ -101,7 +100,7 @@ export default async function Tour() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <main className="min-w-screen min-h-screen bg-black/90 py-10">
+      <main className="min-w-screen min-h-screen bg-black/90 sm:py-10 pt-10">
         <div className="text-white">
           <Link href="/">
             <Logo className="w-35 mx-auto" />
