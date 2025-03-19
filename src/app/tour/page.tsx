@@ -56,10 +56,15 @@ export const metadata: Metadata = {
 };
 
 export default async function Tour() {
-  const events = await fetch(
-    `/api/events`,
-    { next: { revalidate: 3600 } } // Revalidate cache every hour
-  );
+  const apiKey = process.env.BANDSINTOWN_API_KEY;
+  const apiUrl = process.env.BANDSINTOWN_API_URL;
+  const artistID = 15581473;
+
+  const url = `${apiUrl}/id_${encodeURIComponent(
+    artistID
+  )}/events/?app_id=${apiKey}`;
+  const events = await fetch(url, { next: { revalidate: 3600 } });
+
   const data: Event[] = await events.json();
 
   const buttonText = (event: Event): string => {
