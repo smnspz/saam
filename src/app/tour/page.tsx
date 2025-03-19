@@ -63,7 +63,7 @@ export default async function Tour() {
   const url = `${apiUrl}/id_${encodeURIComponent(
     artistID
   )}/events/?app_id=${apiKey}`;
-  const events = await fetch(url, { next: { revalidate: 3600 } });
+  const events = await fetch(url);
 
   const data: Event[] = await events.json();
 
