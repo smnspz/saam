@@ -85,7 +85,7 @@ export default function Home() {
               className="z-10 w-35 mt-auto animate-fade-in"
               color="#ffffff"
             />
-            <h2 className="z-10 text-white font-bold text-5xl tracking-[0.22em] text-center my-7">
+            <h2 className="z-10 text-white font-bold text-5xl tracking-[0.15em] text-center my-7">
               PER OGNI
               <br />
               CADUTA

@@ -137,7 +137,7 @@ export default async function Tour() {
               </address>
               <Link href={event.offers[0].url}>
                 <Button
-                  className="text-lg text-black flex gap-1 justify-center items-center cursor-pointer mb-1 mt-2 sm:mt-0"
+                  className="text-lg text-black flex gap-1 justify-center cursor-pointer mb-1 mt-2 sm:mt-0"
                   variant="outline"
                 >
                   {buttonText(event)}
