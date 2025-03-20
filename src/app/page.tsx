@@ -85,7 +85,7 @@ export default function Home() {
               className="z-10 w-35 mt-auto animate-fade-in"
               color="#ffffff"
             />
-            <h2 className="z-10 text-white font-bold text-5xl tracking-[0.15em] text-center my-7">
+            <h2 className="z-10 text-white font-bold text-5xl tracking-[0.15em] text-center my-7 animate-fade-in-top">
               PER OGNI
               <br />
               CADUTA
@@ -95,7 +95,7 @@ export default function Home() {
               AMATA
               <br />
             </h2>
-            <h1 className="z-10 text-white font-bold text-4xl text-center">
+            <h1 className="z-10 text-white font-bold text-4xl text-center animate-fade-in-top-delayed">
               FUORI ORA
             </h1>
             <ul className="z-10 flex flex-row space-x-8 mt-auto mb-8">

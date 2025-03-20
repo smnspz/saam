@@ -1,0 +1,9 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+You're an expert in css and tailwind css
+You're using tailwind version 4
+You write tailwind configuration in the [globals.css](mdc:src/app/globals.css) file
+
