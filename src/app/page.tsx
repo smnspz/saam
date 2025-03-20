@@ -99,7 +99,7 @@ export default function Home() {
               {menuItems.map((item, index) => (
                 <li
                   key={index}
-                  className="text-white text-xl font-bold underline underline-offset-4 cursor-pointer"
+                  className="text-white text-xl font-bold underline underline-offset-4 cursor-pointer animate"
                 >
                   <Link href={item.url}>{item.name}</Link>
                 </li>

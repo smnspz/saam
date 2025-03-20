@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Event } from "@/types/event";
-import { formatDate } from "@/utils/dateUtils";
+import { formatDate } from "@/lib/utils/dateUtils";
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 
