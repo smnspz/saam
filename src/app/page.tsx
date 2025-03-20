@@ -5,8 +5,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "SAAM | Per ogni caduta una terra amata fuori ora",
-  description:
-    "SAAM is an Italian emo rock band from Genova. Per ogni caduta una terra amata fuori ora! Listen to our latest music and check our tour dates.",
+  description: "Emocore da Genova. Per ogni caduta una terra amata fuori ora",
   keywords: [
     "SAAM",
     "Italian band",
@@ -22,9 +21,8 @@ export const metadata: Metadata = {
     "album",
   ],
   openGraph: {
-    title: "SAAM | Italian Emo Rock Band | Official Website",
-    description:
-      "SAAM is an Italian emo rock band from Genova. Listen to our latest music and check our tour dates.",
+    title: "SAAM | Official Website",
+    description: "Emocore da Genova. Per ogni caduta una terra amata fuori ora",
     url: "https://saam.band",
     siteName: "SAAM Official Website",
     images: [
@@ -40,9 +38,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SAAM | Italian Emo Rock Band | Official Website",
-    description:
-      "SAAM is an Italian emo rock band from Genova. Listen to our latest music and check our tour dates.",
+    title: "SAAM | Official Website",
+    description: "Emocore da Genova. Per ogni caduta una terra amata fuori ora",
     images: ["https://saam.band/album_cover.jpg"],
   },
   alternates: {

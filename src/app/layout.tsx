@@ -26,9 +26,9 @@ export const metadata: Metadata = {
     "music",
     "Per ogni caduta una terra amata",
   ],
-  authors: [{ name: "SAAM" }],
-  creator: "SAAM",
-  publisher: "SAAM",
+  authors: [{ name: "Simone Rosani" }],
+  creator: "Simone Rosani",
+  publisher: "Simone Rosani",
   formatDetection: {
     email: false,
     address: false,
