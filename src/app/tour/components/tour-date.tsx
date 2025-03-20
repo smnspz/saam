@@ -3,13 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Event } from "@/types/event";
 import { formatDate } from "@/lib/utils/dateUtils";
-import {
-  ChevronRight,
-  Copy,
-  Ellipsis,
-  EllipsisVertical,
-  Eye,
-} from "lucide-react";
+import { ChevronRight, Copy, Ellipsis, Eye } from "lucide-react";
 import Link from "next/link";
 import {
   DropdownMenu,
