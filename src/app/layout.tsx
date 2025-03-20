@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { PostHogProvider } from "@/providers/posthog";
+import { Toaster } from "sonner";
 
 const ibmPlexMono = IBM_Plex_Mono({
   weight: ["400", "700"],
@@ -55,9 +56,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="it" className={ibmPlexMono.className}>
-      <PostHogProvider>
-        <body className="antialiased font-ibm-plex-mono">{children}</body>
-      </PostHogProvider>
+      <body className="antialiased font-ibm-plex-mono">
+        <PostHogProvider>
+          {children}
+          <Toaster />
+        </PostHogProvider>
+      </body>
     </html>
   );
 }

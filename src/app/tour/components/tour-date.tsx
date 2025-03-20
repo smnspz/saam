@@ -1,8 +1,23 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { Event } from "@/types/event";
 import { formatDate } from "@/lib/utils/dateUtils";
-import { ChevronRight } from "lucide-react";
+import {
+  ChevronRight,
+  Copy,
+  Ellipsis,
+  EllipsisVertical,
+  Eye,
+} from "lucide-react";
 import Link from "next/link";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { copyToClipboard } from "@/lib/utils";
 
 export default function TourDate({ event }: { event: Event }) {
   const buttonText = (event: Event): string => {
@@ -27,18 +42,40 @@ export default function TourDate({ event }: { event: Event }) {
           <address className="sm:hidden not-italic">{event.venue.city}</address>
         </div>
       </div>
-      <address className="hidden sm:block not-italic">
+      <address className="hidden sm:block not-italic mx-auto">
         {event.venue.city}
       </address>
-      <Link href={event.offers[0].url}>
-        <Button
-          className="text-lg text-black flex gap-1 justify-center cursor-pointer mb-4 sm:mb-2 mt-2 sm:mt-0"
-          variant="outline"
-        >
-          {buttonText(event)}
-          <ChevronRight />
-        </Button>
-      </Link>
+      <div className="flex flex-col sm:flex-row items-center gap-2 mb-4 sm:mb-2 mt-2 sm:mt-0">
+        <Link href={event.offers[0].url} target="_blank">
+          <Button
+            className="text-lg text-black flex gap-1 justify-center cursor-pointer "
+            variant="outline"
+          >
+            {buttonText(event)}
+            <ChevronRight />
+          </Button>
+        </Link>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Ellipsis className="text-white cursor-pointer sm:rotate-90" />
+          </DropdownMenuTrigger>
+          <DropdownMenuContent>
+            <Link href={event.url} target="_blank">
+              <DropdownMenuItem className="cursor-pointer">
+                <Eye />
+                Visualizza
+              </DropdownMenuItem>
+            </Link>
+            <DropdownMenuItem
+              className="cursor-pointer"
+              onClick={() => copyToClipboard(event.url)}
+            >
+              <Copy />
+              Copia link evento
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </div>
     </article>
   );
 }
